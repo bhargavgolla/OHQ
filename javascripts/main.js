@@ -350,7 +350,7 @@ function formSubmit(){
 			},
 			error:function(){
 				console.log("Failed!!!!");
-				alert("Failed!!!");
+				//alert("Failed!!!");
 			},
 			complete:function(){
 				score();
