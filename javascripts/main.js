@@ -209,6 +209,7 @@ function score(){
 	}
 	total_score=total_score/29;
 	console.log(total_score);
+	total_score=Math.floor(total_score * 100) / 100
 	$('#score').text(total_score);
 	if(total_score>=6)
 	{
@@ -242,15 +243,20 @@ function score(){
 }
 
 function formSubmit(){
+	$('#defaultCountdown').hide(); 
 	for (var i = 0; i < params.length; i++)
 	{
 		var input_selector='input[name="'+params[i].name+'"]';
 		var value = $(input_selector).val();
+		if($(input_selector).attr('type')==='radio')
+		{
+			value=$(input_selector+':checked').val();
+			console.log(value);
+		}
 		if (typeof value !== "undefined"){
 			var new_value = value.split(' ').join('+');
 			console.log(new_value);
 			params[i].value= new_value;
-			updateCount(new_value);
 		}
 		else
 		{
@@ -262,6 +268,7 @@ function formSubmit(){
 				params[i].value= new_select_value;
 			}
 		}
+		updateCount(params[i].value);
 	}
 	for(x in count){
 		console.log(count[x]);
