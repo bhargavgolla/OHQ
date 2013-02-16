@@ -152,6 +152,72 @@ var params = [
                 "value": "0"
               }
              ];
+var requestHeaders = [
+            {
+              "name": ":host",
+              "value": "docs.google.com"
+            },
+            {
+              "name": ":version",
+              "value": "HTTP/1.1"
+            },
+            {
+              "name": "origin",
+              "value": "https://docs.google.com"
+            },
+            {
+              "name": "accept-encoding",
+              "value": "gzip,deflate,sdch"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US,en;q=0.8"
+            },
+            {
+              "name": "cookie",
+              "value": "S=spreadsheet_forms=6i6Pbc_GNqIZ-3rFowIjdw; NID=67=CmFQiE-Ih1-O_OV4ZI8MODT_Ag5rX6G4bT0AfsWdGx04e2wJz2kY_4pVQqbbLW49ls_8osZPZJAEhcnrUmnSDbXrXkUbyPej4wIyEjEFns2tLEVupqxKylVyj0Wcj_us; PREF=ID=803281760cd7829b:FF=0:TM=1361016736:LM=1361016736:S=iXSi3rEyfbZUgfrF"
+            },
+            {
+              "name": "content-length",
+              "value": "1154"
+            },
+            {
+              "name": ":path",
+              "value": "/forms/d/1qTzutgub2BbBMD9lplnWFSVJxYl7gRpNp1I38tb8RjI/formResponse?pli=1"
+            },
+            {
+              "name": "accept-charset",
+              "value": "ISO-8859-1,utf-8;q=0.7,*;q=0.3"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-www-form-urlencoded"
+            },
+            {
+              "name": "accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=0"
+            },
+            {
+              "name": "referer",
+              "value": "https://docs.google.com/forms/d/1qTzutgub2BbBMD9lplnWFSVJxYl7gRpNp1I38tb8RjI/viewform?edit_requested=true&pli=1"
+            },
+            {
+              "name": ":scheme",
+              "value": "https"
+            },
+            {
+              "name": ":method",
+              "value": "POST"
+            }
+          ];
 function timeOut(){
 	alert('Time is up!!');
 	formSubmit();
@@ -275,14 +341,18 @@ function formSubmit(){
 	}
 	$.ajax({  
 			type: "POST",  
-			url: "https://docs.google.com/forms/d/1qTzutgub2BbBMD9lplnWFSVJxYl7gRpNp1I38tb8RjI/formResponse?pli=1",  
-			data: params,  
+			url: "https://docs.google.com/forms/d/1qTzutgub2BbBMD9lplnWFSVJxYl7gRpNp1I38tb8RjI/formResponse?pli=1",
+			crossDomain:true,
+			data: params, 
+			//headers: requestHeaders,
 			success: function() {
-				score();
+				console.log("Success!!!");
 			},
 			error:function(){
 				console.log("Failed!!!!");
 				alert("Failed!!!");
+			},
+			complete:function(){
 				score();
 			}
 		});	
