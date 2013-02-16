@@ -7,6 +7,27 @@
     <meta name="description" content="Oxford-happiness-survey : A good way to get a snapshot of your current level of happiness" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/jquery.countdown.css">
+	<style type="text/css">
+		#defaultCountdown { 
+			width: 240px;
+			height: 50px;
+			position:fixed;
+			right:10px;
+			top:15px;
+			}
+		#main_content
+		{
+			display:none;
+		}
+		#score_content
+		{
+			display:none;
+		}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.countdown.js"></script>
+	<script type="text/javascript" src="javascripts/main.js"></script>
 
     <title>Oxford-happiness-survey</title>
   </head>
@@ -16,21 +37,17 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/bhargavgolla/Oxford-Happiness-Survey">View on GitHub</a>
 
           <h1 id="project_title">Oxford-happiness-survey</h1>
           <h2 id="project_tagline">A good way to get a snapshot of your current level of happiness</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/bhargavgolla/Oxford-Happiness-Survey/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/bhargavgolla/Oxford-Happiness-Survey/tarball/master">Download this project as a tar.gz file</a>
-            </section>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+		<!-- Countdown-->
+		<div id="defaultCountdown"></div>
+      <!--<section id="main_content" class="inner">
         <h3>Welcome to GitHub Pages.</h3>
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
@@ -57,17 +74,514 @@ $ git checkout gh-pages
 <h3>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+      </section>-->
+	  <section id="main_content" class="inner">
+		<div class="ss-form-heading">
+			<div class="ss-form-desc ss-no-ignore-whitespace">The Oxford Happiness Questionnaire was developed by psychologists Michael Argyle and Peter Hills at Oxford University. Take a few moments to take the survey. This is a good way to get a snapshot of your current level of happiness
+			<p>Please read the statements carefully, because some are phrased positively and others negatively. Don’t take too long over individual questions; there are no “right” or “wrong” answers (and no trick questions). The first answer that comes into your head is probably the right one for you. If you find some of the questions difficult, please give the answer that is true for you in general or for most of the time.</p>
+			<p>Please finish the questionnaire in 10 minutes.</p>
+			</div>
+			<hr class="ss-email-break" style="display:none;">
+			<div class="ss-required-asterisk">*Required</div>
+		</div>
+		<div class="ss-form">
+			<!--<form action="https://docs.google.com/forms/d/1qTzutgub2BbBMD9lplnWFSVJxYl7gRpNp1I38tb8RjI/formResponse?pli=1" method="POST" id="ss-form" target="_self" onsubmit="">-->
+			<form action="" id="ss-form" target="_self" onsubmit="" name="survey">
+				<div class="errorbox-good">
+					<div dir="ltr" class="ss-item ss-item-required ss-text">
+						<div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_199567677"><div class="ss-q-title">BITS ID No
+							<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+							<span class="ss-required-asterisk">*</span></div>
+							<div class="ss-q-help" dir="ltr">eg f2007001</div></label>
+							<input type="text" name="entry.199567677" value="" class="ss-q-short" id="entry_199567677" dir="auto" aria-required="true">
+						</div>
+					</div>
+				</div>
+				<div class="errorbox-good">
+					<div dir="ltr" class="ss-item ss-item-required ss-text">
+						<div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_1986758172">
+								<div class="ss-q-title">Age
+									<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+										<span class="ss-required-asterisk">*</span>
+								</div>
+								<div class="ss-q-help" dir="ltr">in years</div>
+							</label>
+							<input type="text" name="entry.1986758172" value="" class="ss-q-short" id="entry_1986758172" dir="auto" aria-required="true">
+						</div>
+					</div>
+				</div> 
+				<div class="errorbox-good">
+					<div dir="ltr" class="ss-item ss-item-required ss-select">
+						<div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_1542732942">
+								<div class="ss-q-title">Sex
+									<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+									<span class="ss-required-asterisk">*</span>
+								</div>
+								<div class="ss-q-help" dir="ltr"></div>
+							</label>
+							<select name="entry.1542732942" id="entry_1542732942" aria-required="true">
+								<option value=""></option>
+								<option value="Male">Male</option> 
+								<option value="Female">Female</option>
+							</select>
+						</div>
+					</div>
+				</div> 
+				<div class="errorbox-good">
+					<div dir="ltr" class="ss-item  ss-select">
+						<div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_1108189892">
+								<div class="ss-q-title">To which Indian State do you belong 
+								</div>
+								<div class="ss-q-help" dir="ltr"></div>
+							</label>
+							<select name="entry.1108189892" id="entry_1108189892">
+								<option value=""></option>
+								<option value="Andhra Pradesh">Andhra Pradesh</option> 
+								<option value="Arunachal Pradesh">Arunachal Pradesh</option> 
+								<option value="Assam">Assam</option> 
+								<option value="Bihar">Bihar</option> 
+								<option value="Chhattisgarh">Chhattisgarh</option> 
+								<option value="Goa">Goa</option> 
+								<option value="Gujarat">Gujarat</option> 
+								<option value="Haryana">Haryana</option> 
+								<option value="Himachal Pradesh">Himachal Pradesh</option> 
+								<option value="Jammu and Kashmir">Jammu and Kashmir</option> 
+								<option value="Jharkhand">Jharkhand</option> 
+								<option value="Karnataka">Karnataka</option> 
+								<option value="Kerala">Kerala</option> 
+								<option value="Madhya Pradesh">Madhya Pradesh</option> 
+								<option value="Maharashtra">Maharashtra</option> 
+								<option value="Manipur">Manipur</option> 
+								<option value="Meghalaya">Meghalaya</option> 
+								<option value="Mizoram">Mizoram</option> 
+								<option value="Nagaland">Nagaland</option> 
+								<option value="Odisha">Odisha</option> 
+								<option value="Punjab">Punjab</option> 
+								<option value="Rajasthan">Rajasthan</option> 
+								<option value="Sikkim">Sikkim</option> 
+								<option value="Tamil Nadu">Tamil Nadu</option> 
+								<option value="Tripura">Tripura</option> 
+								<option value="Uttar Pradesh">Uttar Pradesh</option> 
+								<option value="Uttarakhand">Uttarakhand</option> 
+								<option value="West Bengal">West Bengal</option> 
+								<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option> 
+								<option value="Chandigarh">Chandigarh</option> 
+								<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option> 
+								<option value="Daman and Diu">Daman and Diu</option> 
+								<option value="Lakshadweep">Lakshadweep</option> 
+								<option value="National Capital Territory of Delhi">National Capital Territory of Delhi</option> 
+								<option value="Puducherry">Puducherry</option>
+							</select>
+						</div>
+					</div>
+				</div> 
+				<div class="errorbox-good">
+					<div dir="ltr" class="ss-item ss-item-required ss-radio">
+						<div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_1851832645">
+								<div class="ss-q-title">Have you given your responses for VIA-IS survey?
+								<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+								<span class="ss-required-asterisk">*</span></div>
+								<div class="ss-q-help" dir="ltr"></div>
+							</label>
+							<ul class="ss-choices">
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.513721068" value="Yes" id="group_513721068_1" class="ss-q-radio" aria-label="Yes">
+										<label class="ss-choice-label" for="group_513721068_1">
+											Yes
+										</label>
+									</label>
+								</li> 
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.513721068" value="No" id="group_513721068_2" class="ss-q-radio" aria-label="No">
+										<label class="ss-choice-label" for="group_513721068_2">No</label>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div> 
+				<div class="errorbox-good">
+					<div dir="ltr" class="ss-item ss-item-required ss-radio">
+						<div class="ss-form-entry">
+							<label class="ss-q-item-label" for="entry_787126468">
+								<div class="ss-q-title">I don’t feel particularly pleased with the way I am.
+									<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+									<span class="ss-required-asterisk">*</span>
+								</div>
+								<div class="ss-q-help" dir="ltr"></div>
+							</label>
+							<ul class="ss-choices">
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.859800556" value="strongly disagree" id="group_859800556_1" class="ss-q-radio" aria-label="strongly disagree">
+										<label class="ss-choice-label" for="group_859800556_1">strongly disagree</label>
+									</label>
+								</li> 
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.859800556" value="moderately disagree" id="group_859800556_2" class="ss-q-radio" aria-label="moderately disagree">
+										<label class="ss-choice-label" for="group_859800556_2">moderately disagree</label>
+									</label>
+								</li> 
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.859800556" value="slightly disagree" id="group_859800556_3" class="ss-q-radio" aria-label="slightly disagree">
+											<label class="ss-choice-label" for="group_859800556_3">slightly disagree</label>
+									</label>
+								</li> 
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.859800556" value="slightly agree" id="group_859800556_4" class="ss-q-radio" aria-label="slightly agree">
+										<label class="ss-choice-label" for="group_859800556_4">slightly agree</label>
+									</label>
+								</li> 
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.859800556" value="moderately agree" id="group_859800556_5" class="ss-q-radio" aria-label="moderately agree">
+										<label class="ss-choice-label" for="group_859800556_5">moderately agree</label>
+									</label>
+								</li> 
+								<li class="ss-choice-item">
+									<label>
+										<input type="radio" name="entry.859800556" value="strongly agree" id="group_859800556_6" class="ss-q-radio" aria-label="strongly agree">
+										<label class="ss-choice-label" for="group_859800556_6">strongly agree</label>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div> 
+				<div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_609302799"><div class="ss-q-title">I am intensely interested in other people
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1594819559" value="strongly disagree" id="group_1594819559_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1594819559_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1594819559" value="moderately disagree" id="group_1594819559_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1594819559_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1594819559" value="slightly disagree" id="group_1594819559_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1594819559_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1594819559" value="slightly agree" id="group_1594819559_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1594819559_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1594819559" value="moderately agree" id="group_1594819559_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1594819559_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1594819559" value="strongly agree" id="group_1594819559_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1594819559_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_476816793"><div class="ss-q-title">I feel that life is very rewarding
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1125405238" value="strongly disagree" id="group_1125405238_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1125405238_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1125405238" value="moderately disagree" id="group_1125405238_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1125405238_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1125405238" value="slightly disagree" id="group_1125405238_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1125405238_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1125405238" value="slightly agree" id="group_1125405238_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1125405238_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1125405238" value="moderately agree" id="group_1125405238_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1125405238_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1125405238" value="strongly agree" id="group_1125405238_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1125405238_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_749248991"><div class="ss-q-title">I have very warm feelings towards almost everyone
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1686456049" value="strongly disagree" id="group_1686456049_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1686456049_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1686456049" value="moderately disagree" id="group_1686456049_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1686456049_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1686456049" value="slightly disagree" id="group_1686456049_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1686456049_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1686456049" value="slightly agree" id="group_1686456049_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1686456049_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1686456049" value="moderately agree" id="group_1686456049_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1686456049_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1686456049" value="strongly agree" id="group_1686456049_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1686456049_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_986131549"><div class="ss-q-title">I rarely wake up feeling rested
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1470758992" value="strongly disagree" id="group_1470758992_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1470758992_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1470758992" value="moderately disagree" id="group_1470758992_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1470758992_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1470758992" value="slightly disagree" id="group_1470758992_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1470758992_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1470758992" value="slightly agree" id="group_1470758992_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1470758992_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1470758992" value="moderately agree" id="group_1470758992_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1470758992_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1470758992" value="strongly agree" id="group_1470758992_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1470758992_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1718473331"><div class="ss-q-title">I am not particularly optimistic about the future
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.71935976" value="strongly disagree" id="group_71935976_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_71935976_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.71935976" value="moderately disagree" id="group_71935976_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_71935976_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.71935976" value="slightly disagree" id="group_71935976_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_71935976_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.71935976" value="slightly agree" id="group_71935976_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_71935976_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.71935976" value="moderately agree" id="group_71935976_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_71935976_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.71935976" value="strongly agree" id="group_71935976_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_71935976_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1421634937"><div class="ss-q-title">I find most things amusing
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1620755690" value="strongly disagree" id="group_1620755690_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1620755690_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1620755690" value="moderately disagree" id="group_1620755690_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1620755690_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1620755690" value="slightly disagree" id="group_1620755690_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1620755690_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1620755690" value="slightly agree" id="group_1620755690_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1620755690_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1620755690" value="moderately agree" id="group_1620755690_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1620755690_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1620755690" value="strongly agree" id="group_1620755690_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1620755690_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_732631588"><div class="ss-q-title">I am always committed and involved
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1043555314" value="strongly disagree" id="group_1043555314_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1043555314_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1043555314" value="moderately disagree" id="group_1043555314_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1043555314_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1043555314" value="slightly disagree" id="group_1043555314_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1043555314_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1043555314" value="slightly agree" id="group_1043555314_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1043555314_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1043555314" value="moderately agree" id="group_1043555314_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1043555314_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1043555314" value="strongly agree" id="group_1043555314_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1043555314_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1079774989"><div class="ss-q-title">Life is good
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.994781497" value="strongly disagree" id="group_994781497_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_994781497_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.994781497" value="moderately disagree" id="group_994781497_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_994781497_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.994781497" value="slightly disagree" id="group_994781497_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_994781497_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.994781497" value="slightly agree" id="group_994781497_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_994781497_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.994781497" value="moderately agree" id="group_994781497_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_994781497_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.994781497" value="strongly agree" id="group_994781497_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_994781497_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1113539412"><div class="ss-q-title">I do not think that the world is a good place
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.885259077" value="strongly disagree" id="group_885259077_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_885259077_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.885259077" value="moderately disagree" id="group_885259077_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_885259077_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.885259077" value="slightly disagree" id="group_885259077_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_885259077_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.885259077" value="slightly agree" id="group_885259077_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_885259077_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.885259077" value="moderately agree" id="group_885259077_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_885259077_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.885259077" value="strongly agree" id="group_885259077_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_885259077_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_468886911"><div class="ss-q-title">I laugh a lot
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.67341474" value="strongly disagree" id="group_67341474_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_67341474_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.67341474" value="moderately disagree" id="group_67341474_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_67341474_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.67341474" value="slightly disagree" id="group_67341474_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_67341474_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.67341474" value="slightly agree" id="group_67341474_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_67341474_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.67341474" value="moderately agree" id="group_67341474_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_67341474_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.67341474" value="strongly agree" id="group_67341474_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_67341474_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_146118684"><div class="ss-q-title">I am well satisfied about everything in my life
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1261082346" value="strongly disagree" id="group_1261082346_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1261082346_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1261082346" value="moderately disagree" id="group_1261082346_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1261082346_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1261082346" value="slightly disagree" id="group_1261082346_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1261082346_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1261082346" value="slightly agree" id="group_1261082346_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1261082346_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1261082346" value="moderately agree" id="group_1261082346_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1261082346_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1261082346" value="strongly agree" id="group_1261082346_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1261082346_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1683907650"><div class="ss-q-title">I don’t think I look attractive
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1027318" value="strongly disagree" id="group_1027318_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1027318_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1027318" value="moderately disagree" id="group_1027318_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1027318_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1027318" value="slightly disagree" id="group_1027318_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1027318_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1027318" value="slightly agree" id="group_1027318_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1027318_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1027318" value="moderately agree" id="group_1027318_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1027318_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1027318" value="strongly agree" id="group_1027318_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1027318_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1402486683"><div class="ss-q-title">There is a gap between what I would like to do and what I have done
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1295743116" value="strongly disagree" id="group_1295743116_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1295743116_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1295743116" value="moderately disagree" id="group_1295743116_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1295743116_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1295743116" value="slightly disagree" id="group_1295743116_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1295743116_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1295743116" value="slightly agree" id="group_1295743116_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1295743116_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1295743116" value="moderately agree" id="group_1295743116_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1295743116_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1295743116" value="strongly agree" id="group_1295743116_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1295743116_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_2007657962"><div class="ss-q-title">I am very happy
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.2104200573" value="strongly disagree" id="group_2104200573_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_2104200573_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2104200573" value="moderately disagree" id="group_2104200573_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_2104200573_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2104200573" value="slightly disagree" id="group_2104200573_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_2104200573_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2104200573" value="slightly agree" id="group_2104200573_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_2104200573_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2104200573" value="moderately agree" id="group_2104200573_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_2104200573_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2104200573" value="strongly agree" id="group_2104200573_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_2104200573_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_148407983"><div class="ss-q-title">I find beauty in some things
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1892945828" value="strongly disagree" id="group_1892945828_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1892945828_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1892945828" value="moderately disagree" id="group_1892945828_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1892945828_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1892945828" value="slightly disagree" id="group_1892945828_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1892945828_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1892945828" value="slightly agree" id="group_1892945828_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1892945828_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1892945828" value="moderately agree" id="group_1892945828_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1892945828_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1892945828" value="strongly agree" id="group_1892945828_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1892945828_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_836944524"><div class="ss-q-title">I always have a cheerful effect on others
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.987701389" value="strongly disagree" id="group_987701389_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_987701389_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.987701389" value="moderately disagree" id="group_987701389_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_987701389_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.987701389" value="slightly disagree" id="group_987701389_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_987701389_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.987701389" value="slightly agree" id="group_987701389_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_987701389_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.987701389" value="moderately agree" id="group_987701389_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_987701389_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.987701389" value="strongly agree" id="group_987701389_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_987701389_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_860057018"><div class="ss-q-title">I can fit in (find time for) everything I want to
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.412387370" value="strongly disagree" id="group_412387370_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_412387370_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.412387370" value="moderately disagree" id="group_412387370_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_412387370_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.412387370" value="slightly disagree" id="group_412387370_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_412387370_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.412387370" value="slightly agree" id="group_412387370_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_412387370_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.412387370" value="moderately agree" id="group_412387370_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_412387370_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.412387370" value="strongly agree" id="group_412387370_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_412387370_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1036208429"><div class="ss-q-title">I feel that I am not especially in control of my life
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.459128900" value="strongly disagree" id="group_459128900_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_459128900_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.459128900" value="moderately disagree" id="group_459128900_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_459128900_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.459128900" value="slightly disagree" id="group_459128900_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_459128900_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.459128900" value="slightly agree" id="group_459128900_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_459128900_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.459128900" value="moderately agree" id="group_459128900_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_459128900_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.459128900" value="strongly agree" id="group_459128900_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_459128900_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1930825055"><div class="ss-q-title">I feel able to take anything on
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1461841554" value="strongly disagree" id="group_1461841554_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1461841554_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1461841554" value="moderately disagree" id="group_1461841554_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1461841554_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1461841554" value="slightly disagree" id="group_1461841554_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1461841554_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1461841554" value="slightly agree" id="group_1461841554_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1461841554_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1461841554" value="moderately agree" id="group_1461841554_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1461841554_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1461841554" value="strongly agree" id="group_1461841554_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1461841554_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1876119601"><div class="ss-q-title">I feel fully mentally alert
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.2022613729" value="strongly disagree" id="group_2022613729_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_2022613729_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2022613729" value="moderately disagree" id="group_2022613729_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_2022613729_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2022613729" value="slightly disagree" id="group_2022613729_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_2022613729_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2022613729" value="slightly agree" id="group_2022613729_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_2022613729_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2022613729" value="moderately agree" id="group_2022613729_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_2022613729_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2022613729" value="strongly agree" id="group_2022613729_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_2022613729_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_427008009"><div class="ss-q-title">I often experience joy and elation
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.275512709" value="strongly disagree" id="group_275512709_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_275512709_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.275512709" value="moderately disagree" id="group_275512709_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_275512709_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.275512709" value="slightly disagree" id="group_275512709_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_275512709_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.275512709" value="slightly agree" id="group_275512709_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_275512709_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.275512709" value="moderately agree" id="group_275512709_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_275512709_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.275512709" value="strongly agree" id="group_275512709_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_275512709_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_274001415"><div class="ss-q-title">I don’t find it easy to make decisions
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.6940694" value="strongly disagree" id="group_6940694_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_6940694_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.6940694" value="moderately disagree" id="group_6940694_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_6940694_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.6940694" value="slightly disagree" id="group_6940694_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_6940694_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.6940694" value="slightly agree" id="group_6940694_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_6940694_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.6940694" value="moderately agree" id="group_6940694_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_6940694_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.6940694" value="strongly agree" id="group_6940694_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_6940694_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_66525003"><div class="ss-q-title">I don’t have a particular sense of meaning and purpose in my life
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.379783395" value="strongly disagree" id="group_379783395_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_379783395_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.379783395" value="moderately disagree" id="group_379783395_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_379783395_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.379783395" value="slightly disagree" id="group_379783395_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_379783395_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.379783395" value="slightly agree" id="group_379783395_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_379783395_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.379783395" value="moderately agree" id="group_379783395_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_379783395_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.379783395" value="strongly agree" id="group_379783395_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_379783395_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_640592499"><div class="ss-q-title">I feel I have a great deal of energy
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.1482509974" value="strongly disagree" id="group_1482509974_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_1482509974_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1482509974" value="moderately disagree" id="group_1482509974_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_1482509974_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1482509974" value="slightly disagree" id="group_1482509974_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_1482509974_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1482509974" value="slightly agree" id="group_1482509974_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_1482509974_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1482509974" value="moderately agree" id="group_1482509974_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_1482509974_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.1482509974" value="strongly agree" id="group_1482509974_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_1482509974_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1251522855"><div class="ss-q-title">I usually have a good influence on events
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.905512334" value="strongly disagree" id="group_905512334_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_905512334_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.905512334" value="moderately disagree" id="group_905512334_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_905512334_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.905512334" value="slightly disagree" id="group_905512334_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_905512334_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.905512334" value="slightly agree" id="group_905512334_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_905512334_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.905512334" value="moderately agree" id="group_905512334_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_905512334_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.905512334" value="strongly agree" id="group_905512334_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_905512334_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_352445911"><div class="ss-q-title">I don’t have fun with other people
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.2065783494" value="strongly disagree" id="group_2065783494_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_2065783494_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2065783494" value="moderately disagree" id="group_2065783494_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_2065783494_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2065783494" value="slightly disagree" id="group_2065783494_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_2065783494_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2065783494" value="slightly agree" id="group_2065783494_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_2065783494_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2065783494" value="moderately agree" id="group_2065783494_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_2065783494_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2065783494" value="strongly agree" id="group_2065783494_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_2065783494_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_754748742"><div class="ss-q-title">I don’t feel particularly healthy
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.113208607" value="strongly disagree" id="group_113208607_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_113208607_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.113208607" value="moderately disagree" id="group_113208607_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_113208607_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.113208607" value="slightly disagree" id="group_113208607_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_113208607_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.113208607" value="slightly agree" id="group_113208607_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_113208607_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.113208607" value="moderately agree" id="group_113208607_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_113208607_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.113208607" value="strongly agree" id="group_113208607_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_113208607_6">strongly agree</label></label></li></ul></div></div></div> <div class="errorbox-good">
+<div dir="ltr" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry"><label class="ss-q-item-label" for="entry_184441769"><div class="ss-q-title">I don’t have particularly happy memories of the past
+<label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+<span class="ss-required-asterisk">*</span></div>
+<div class="ss-q-help" dir="ltr"></div></label>
+<ul class="ss-choices"><li class="ss-choice-item"><label><input type="radio" name="entry.2054190663" value="strongly disagree" id="group_2054190663_1" class="ss-q-radio" aria-label="strongly disagree">
+<label class="ss-choice-label" for="group_2054190663_1">strongly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2054190663" value="moderately disagree" id="group_2054190663_2" class="ss-q-radio" aria-label="moderately disagree">
+<label class="ss-choice-label" for="group_2054190663_2">moderately disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2054190663" value="slightly disagree" id="group_2054190663_3" class="ss-q-radio" aria-label="slightly disagree">
+<label class="ss-choice-label" for="group_2054190663_3">slightly disagree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2054190663" value="slightly agree" id="group_2054190663_4" class="ss-q-radio" aria-label="slightly agree">
+<label class="ss-choice-label" for="group_2054190663_4">slightly agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2054190663" value="moderately agree" id="group_2054190663_5" class="ss-q-radio" aria-label="moderately agree">
+<label class="ss-choice-label" for="group_2054190663_5">moderately agree</label></label></li> <li class="ss-choice-item"><label><input type="radio" name="entry.2054190663" value="strongly agree" id="group_2054190663_6" class="ss-q-radio" aria-label="strongly agree">
+<label class="ss-choice-label" for="group_2054190663_6">strongly agree</label></label></li></ul></div></div></div>
+<input type="hidden" name="draftResponse" value="[]">
+		<input type="hidden" name="pageHistory" value="0">
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Oxford-happiness-survey maintained by <a href="https://github.com/bhargavgolla">bhargavgolla</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
 
+		<div class="ss-item ss-navigate"><div class="ss-form-entry">
+			<input type="submit" name="submit" value="Submit" id="ss-submit">
+			</div>
+			</div>
+			</form>
+			</div>
+		</section>
+		<section id="score_content" class="inner">
+			<p>Your score is <span id="score">2010</span>. And you are <span id="mood"></span> with your life.</p>
+		</section>
+    </div>
     
 
   </body>
